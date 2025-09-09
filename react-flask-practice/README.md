@@ -25,23 +25,24 @@ react-flask-practice/
 
 #### Python 가상환경 생성 및 활성화
 ```bash
-cd server
+cd backend
 python -m venv venv
 source venv/bin/activate  # macOS/Linux
 # 또는
 venv\Scripts\activate     # Windows
 ```
 
-#### Flask 및 필요한 패키지 설치
+#### Flask 및 필요한 패키지 설치 > 의존성 패키지 목록 생성
 ```bash
 pip install flask flask-cors
+pip freeze > requirements.txt
 ```
 
 ### 2. React 프론트엔드 설정
 
 #### Node.js 의존성 설치
 ```bash
-cd spwe-sample
+cd frontend
 npm install
 ```
 
@@ -57,7 +58,7 @@ pip install -r requirements.txt
 python app.py
 ```
 - 서버가 `http://localhost:5001`에서 실행됩니다
-- API 엔드포인트: `http://localhost:5001/api/hello`
+- API 엔드포인트: `http://localhost:5001/api/popuplist`
 
 ### 2. 프론트엔드 실행 (React)
 
@@ -72,19 +73,19 @@ npm start
 ## 🌐 접속 정보
 
 - **React 앱**: http://localhost:3000
-- **Flask API**: http://localhost:5001/api/hello
+- **Flask API**: http://localhost:5001/api/popuplist
 
 ## 📋 파일별 역할
 
 ### Backend (Flask)
 - **`backend/app.py`**: Flask 서버의 메인 파일
-  - `/api/hello` 엔드포인트 제공
+  - `/api/popuplist` 엔드포인트 제공
   - CORS 설정으로 React 앱에서의 요청 허용
   - JSON 형태로 메시지 응답
 
 ### Frontend (React)
 - **`frontend/src/App.js`**: React 메인 컴포넌트
-  - Flask 서버의 `/api/hello` 엔드포인트 호출
+  - Flask 서버의 `/api/popuplist` 엔드포인트 호출
   - 받은 메시지를 화면에 표시
   - 로딩 상태 관리
 
@@ -95,12 +96,12 @@ npm start
 ## 🌐 실행된 내용
 
 ### Flask 서버 (포트 5001)
-- `http://localhost:5001/api/hello` 엔드포인트 제공
+- `http://localhost:5001/api/popuplist` 엔드포인트 제공
 - CORS 설정으로 React 앱에서 접근 허용
-- JSON 응답: `{"message": "안녕하세요! 여기는 Flask 백엔드 서버 5001번 포트입니다!"}`
+- JSON 응답: `popuplist 메세지`
 
 ### React 앱 (포트 3000)
-- Flask 서버의 `/api/hello` 엔드포인트를 호출
+- Flask 서버의 `/api/popuplist` 엔드포인트를 호출
 - 받은 메시지를 화면에 표시
 - React 로고가 회전하며 애니메이션 표시
 
